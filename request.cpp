@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "server.h"
+#include "connection.h"
 
 namespace asio_httpd {
 

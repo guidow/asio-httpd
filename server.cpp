@@ -2,6 +2,8 @@
 
 #include <boost/bind.hpp>
 
+#include "connection.h"
+
 namespace asio_httpd {
 
 Server::Server(boost::asio::io_context& iocontext, uint16_t port)

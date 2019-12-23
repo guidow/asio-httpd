@@ -6,12 +6,13 @@
 #include <boost/asio.hpp>
 
 #include "requesthandlerfactory.h"
-#include "connection.h"
 #include "path.h"
 
 namespace asio_httpd {
 
 using namespace boost::asio;
+
+class Connection;
 
 class Server
     {
