@@ -13,7 +13,7 @@ class HelloWorldRequestHandlerFactory : public RequestHandlerFactory
     {
     public:
     HelloWorldRequestHandlerFactory(boost::asio::io_context& io) : RequestHandlerFactory(io) {}
-    ~HelloWorldRequestHandlerFactory() {}
+    virtual ~HelloWorldRequestHandlerFactory() {}
 
     std::unique_ptr<GetHandler> createGetHandler() {return std::make_unique<HelloWorldGetHandler>(m_io);}
     std::unique_ptr<PostHandler> createPostHandler() {return std::make_unique<HelloWorldPostHandler>(m_io);}
