@@ -24,9 +24,6 @@ class Server
 
     void register_handler(const Path& path, std::shared_ptr<RequestHandlerFactory> handler);
 
-    void accept_handler4(const boost::system::error_code& error, std::shared_ptr<Connection> conn);
-    void accept_handler6(const boost::system::error_code& error, std::shared_ptr<Connection> conn);
-
     void accept4();
     void accept6();
 
@@ -40,6 +37,9 @@ class Server
         };
 
     private:
+    void accept_handler4(const boost::system::error_code& error, std::shared_ptr<Connection> conn);
+    void accept_handler6(const boost::system::error_code& error, std::shared_ptr<Connection> conn);
+
     io_context& m_iocontext;
     uint16_t m_listenport;
     ip::tcp::acceptor m_acceptor4;
