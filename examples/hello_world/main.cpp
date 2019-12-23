@@ -1,6 +1,7 @@
 #include <memory>
 
-#include "server.h"
+#include <server.h>
+
 #include "helloworldrequesthandlerfactory.h"
 
 int main(int, char**) 

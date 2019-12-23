@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.13)
 
 project(asio-httpd)
 
@@ -20,8 +20,8 @@ add_library(asio-httpd SHARED
             request.cpp getrequest.cpp postrequest.cpp
             gethandler.cpp posthandler.cpp)
 
+target_include_directories(asio-httpd PUBLIC ${CMAKE_CURRENT_LIST_DIR})
+
 target_link_libraries(asio-httpd ${Boost_LIBRARIES})
 
-add_executable(httpd_test helloworldgethandler.cpp helloworldposthandler.cpp main.cpp)
-
-target_link_libraries(httpd_test asio-httpd Threads::Threads)
+add_subdirectory(examples)
