@@ -184,8 +184,6 @@ void Connection::handle_readheaderfield(const boost::system::error_code& err)
 
 void Connection::readpayload()
     {
-std::cerr << "In readpayload, expecting " << m_currentrequest->expected_payload_bytes() << " payload bytes" << std::endl;
-
     // Switching buffers at this point - make sure old readbuffer is empty
     uint32_t bytes = 0;
     auto data = m_readbuf.data();
@@ -224,8 +222,6 @@ std::cerr << "In readpayload, expecting " << m_currentrequest->expected_payload_
 void Connection::handle_readpayloadblock(std::shared_ptr<std::vector<uint8_t>> block, const boost::system::error_code& err, std::size_t bytes_transferred)
     {
     if(!err) {
-std::cerr << "In handle_readpayloadblock, read " << bytes_transferred << " bytes" << std::endl;
-
         try {
             if(block->size() > bytes_transferred)
                 block->erase(block->begin() + bytes_transferred);
