@@ -27,6 +27,10 @@ class Connection : public std::enable_shared_from_this<Connection>
 
     ip::tcp::socket& socket() {return m_socket;}
 
+    class BadRequest : public std::runtime_error
+        {public: BadRequest(const std::string & msg): runtime_error(msg) {}};
+
+    private:
     void readrequestline();
     void handle_readrequestline(const boost::system::error_code& err);
     void readheaderfield();
@@ -39,11 +43,7 @@ class Connection : public std::enable_shared_from_this<Connection>
     void handle_write_block(const boost::system::error_code& err, std::size_t bytes_transferred);
     void handle_write_block_prefix(const boost::system::error_code& err, std::size_t bytes_transferred);
 
-    class BadRequest : public std::runtime_error
-        {public: BadRequest(const std::string & msg): runtime_error(msg) {}};
-
-    private:
-    std::pair<std::string, std::string> parsekv(const std::string & in);
+    std::pair<std::string, std::string> parsekv(const std::string& in);
 
     ip::tcp::socket m_socket;
     Server& m_server;
