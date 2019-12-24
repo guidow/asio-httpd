@@ -20,6 +20,9 @@ class Connection : public std::enable_shared_from_this<Connection>
     Connection(io_context& io, Server& server);
     ~Connection();
 
+    // Start operations on this connections. Once called, this connection will
+    // keep its own shared_ptr alive as long as it's in use, and clean up after
+    // itself when it's closed.
     void start();
 
     ip::tcp::socket& socket() {return m_socket;}
