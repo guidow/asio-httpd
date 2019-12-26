@@ -5,7 +5,7 @@
 
 namespace asio_httpd {
 
-struct HttpHeader 
+struct HttpHeader
     {
     HttpHeader(const std::string& key_, const std::string& value_)
         : key(key_), value(value_) {}

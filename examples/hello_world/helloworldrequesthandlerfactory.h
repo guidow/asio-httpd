@@ -3,7 +3,8 @@
 
 #include <memory>
 
-#include "requesthandlerfactory.h"
+#include <asio-httpd/requesthandlerfactory.h>
+
 #include "helloworldgethandler.h"
 #include "helloworldposthandler.h"
 

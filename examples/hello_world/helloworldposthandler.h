@@ -3,7 +3,7 @@
 
 // Test implementation of a post handler
 
-#include <posthandler.h>
+#include <asio-httpd/posthandler.h>
 
 namespace asio_httpd {
 

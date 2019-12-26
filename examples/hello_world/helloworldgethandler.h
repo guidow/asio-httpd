@@ -3,7 +3,7 @@
 
 // Test implementation of a get handler that just sends hello world
 
-#include <gethandler.h>
+#include <asio-httpd/gethandler.h>
 
 namespace asio_httpd {
 

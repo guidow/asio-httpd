@@ -1,6 +1,6 @@
 #include "helloworldgethandler.h"
 
-#include "error_category.h"
+#include "asio-httpd/error_category.h"
 
 #include <boost/bind.hpp>
 
