@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 
-project(asio-httpd)
+project(asio-httpd VERSION 0.0.1)
 
 if(CMAKE_COMPILER_IS_GNUCC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
@@ -21,6 +21,8 @@ add_library(asio-httpd SHARED
             gethandler.cpp posthandler.cpp)
 target_include_directories(asio-httpd PRIVATE .)
 target_include_directories(asio-httpd PRIVATE include/asio-httpd/)
+set_target_properties(asio-httpd PROPERTIES VERSION ${PROJECT_VERSION})
+set_target_properties(asio-httpd PROPERTIES SOVERSION 0)
 set_target_properties(asio-httpd PROPERTIES PUBLIC_HEADER
             include/asio-httpd/include/asio-httpd/deletehandler.h
             include/asio-httpd/include/asio-httpd/deleterequest.h
