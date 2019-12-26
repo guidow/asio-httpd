@@ -76,7 +76,7 @@ void Path::append(const Path& path)
 
     // Make sure the path to append does not start with "/"
     // (Paths stored in Path objects are always normalized and never contain consecutive slashes)
-    if(*it == "/")
+    while(it != path.m_components.end() && *it == "/")
         it++;
 
     // Make sure this path does end with / before appending
