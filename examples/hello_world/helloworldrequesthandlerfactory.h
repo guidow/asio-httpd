@@ -8,7 +8,7 @@
 #include "helloworldgethandler.h"
 #include "helloworldposthandler.h"
 
-namespace asio_httpd {
+namespace httpd_hello_world {
 
 class HelloWorldRequestHandlerFactory : public RequestHandlerFactory
     {

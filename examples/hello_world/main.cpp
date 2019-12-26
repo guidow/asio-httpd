@@ -8,7 +8,7 @@ int main(int, char**)
     {
     boost::asio::io_context io;
 
-    auto factory = std::make_shared<asio_httpd::HelloWorldRequestHandlerFactory>(io);
+    auto factory = std::make_shared<httpd_hello_world::HelloWorldRequestHandlerFactory>(io);
 
     asio_httpd::Server server(io, 8080);
     server.register_handler(asio_httpd::Path("/"), factory);

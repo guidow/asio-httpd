@@ -5,7 +5,8 @@
 
 #include <asio-httpd/gethandler.h>
 
-namespace asio_httpd {
+namespace httpd_hello_world {
+using namespace asio_httpd;
 
 class HelloWorldGetHandler : public GetHandler
     {

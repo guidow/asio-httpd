@@ -6,9 +6,7 @@
 
 #include <boost/bind.hpp>
 
-namespace asio_httpd {
-
-extern asio_httpd::error_category ec;
+namespace httpd_hello_world {
 
 void HelloWorldPostHandler::set_subpath(const Path& path)
     {

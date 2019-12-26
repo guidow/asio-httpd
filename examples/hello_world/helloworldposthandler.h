@@ -5,7 +5,8 @@
 
 #include <asio-httpd/posthandler.h>
 
-namespace asio_httpd {
+namespace httpd_hello_world {
+using namespace asio_httpd;
 
 class HelloWorldPostHandler : public PostHandler
     {

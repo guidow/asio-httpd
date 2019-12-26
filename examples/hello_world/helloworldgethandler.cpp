@@ -4,9 +4,7 @@
 
 #include <boost/bind.hpp>
 
-namespace asio_httpd {
-
-extern asio_httpd::error_category ec;
+namespace httpd_hello_world {
 
 void HelloWorldGetHandler::set_subpath(const Path& path)
     {
