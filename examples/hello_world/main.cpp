@@ -2,16 +2,16 @@
 
 #include <asio-httpd/server.h>
 
-#include "helloworldrequesthandlerfactory.h"
+#include "helloworldendpoint.h"
 
 int main(int, char**) 
     {
     boost::asio::io_context io;
 
-    auto factory = std::make_shared<httpd_hello_world::HelloWorldRequestHandlerFactory>(io);
+    auto endpoint = std::make_shared<httpd_hello_world::HelloWorldEndpoint>(io);
 
     asio_httpd::Server server(io, 8080);
-    server.register_handler(asio_httpd::Path("/"), factory);
+    server.register_endpoint(asio_httpd::Path("/"), endpoint);
     server.start();
 
     io.run();

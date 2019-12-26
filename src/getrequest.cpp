@@ -68,7 +68,7 @@ void GetRequest::get_output_block_async(std::array<boost::asio::streambuf, 2>& b
 
 void GetRequest::_set_path(const Path&)
     {
-    auto path_and_factory = m_server.get_rhf_for(m_path);
+    auto path_and_factory = m_server.get_endpoint_for(m_path);
     m_handler = path_and_factory.second->createGetHandler();
     Path subtree = path_and_factory.first.difference(m_path);
     m_handler->set_subpath(subtree);

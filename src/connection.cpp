@@ -93,9 +93,9 @@ void Connection::handle_readrequestline(const boost::system::error_code& err)
             std::cerr << "In Connection::handle_readrequestline, caught BadRequest: " << e.what() << std::endl;
             // TODO Send BadRequest response
             }
-        catch(RequestHandlerFactory::MethodNotSupported& e) {
+        catch(Endpoint::MethodNotSupported& e) {
             // TODO Proper logging
-            std::cerr << "In Connection::handle_readrequestline, caught BadRequest: " << e.what() << std::endl;
+            std::cerr << "In Connection::handle_readrequestline, caught Endpoint::MethodNotSupported: " << e.what() << std::endl;
             // TODO Send MethodNotAllowed response
             }
         catch(std::runtime_error& e) {

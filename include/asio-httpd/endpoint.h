@@ -12,11 +12,11 @@
 
 namespace asio_httpd {
 
-class RequestHandlerFactory
+class Endpoint
     {
     public:
-    RequestHandlerFactory(boost::asio::io_context& io) : m_io(io) {}
-    ~RequestHandlerFactory() {}
+    Endpoint(boost::asio::io_context& io) : m_io(io) {}
+    ~Endpoint() {}
 
     virtual std::unique_ptr<GetHandler> createGetHandler() {throw MethodNotSupported("Get method not supported");}
     virtual std::unique_ptr<PostHandler> createPostHandler() {throw MethodNotSupported("Post method not supported");}

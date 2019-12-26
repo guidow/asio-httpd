@@ -33,7 +33,7 @@ void Server::quit()
     // TODO
     }
 
-void Server::register_handler(const Path& path, std::shared_ptr<RequestHandlerFactory> handler)
+void Server::register_endpoint(const Path& path, std::shared_ptr<Endpoint> handler)
     {
     m_mappings.insert(std::make_pair(path, handler));
     }
@@ -77,12 +77,12 @@ boost::asio::io_context& Server::get_io_context()
     return m_iocontext;
     }
 
-std::pair<Path, std::shared_ptr<RequestHandlerFactory> > Server::get_rhf_for(const Path& path) const
+std::pair<Path, std::shared_ptr<Endpoint>> Server::get_endpoint_for(const Path& path) const
     {
     // Paths with more components always compare as greater than paths with fewer components
     // By going through the sorted mapping backwards, we can guarantee that the first match
     // we find is also the longest match.
-    for(std::map<Path, std::shared_ptr<RequestHandlerFactory> >::const_reverse_iterator i = m_mappings.rbegin() ; i != m_mappings.rend(); ++i)
+    for(std::map<Path, std::shared_ptr<Endpoint>>::const_reverse_iterator i = m_mappings.rbegin() ; i != m_mappings.rend(); ++i)
         if(i->first.is_in_subtree(path))
             return *i;
 

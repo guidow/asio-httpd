@@ -82,7 +82,7 @@ void PostRequest::add_payloadblock(std::shared_ptr<std::vector<uint8_t>> block)
 
 void PostRequest::_set_path(const Path&)
     {
-    auto path_and_factory = m_server.get_rhf_for(m_path);
+    auto path_and_factory = m_server.get_endpoint_for(m_path);
     m_handler = path_and_factory.second->createPostHandler();
     Path subtree = path_and_factory.first.difference(m_path);
     m_handler->set_subpath(subtree);

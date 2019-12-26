@@ -3,18 +3,18 @@
 
 #include <memory>
 
-#include <asio-httpd/requesthandlerfactory.h>
+#include <asio-httpd/endpoint.h>
 
 #include "helloworldgethandler.h"
 #include "helloworldposthandler.h"
 
 namespace httpd_hello_world {
 
-class HelloWorldRequestHandlerFactory : public RequestHandlerFactory
+class HelloWorldEndpoint : public Endpoint
     {
     public:
-    HelloWorldRequestHandlerFactory(boost::asio::io_context& io) : RequestHandlerFactory(io) {}
-    virtual ~HelloWorldRequestHandlerFactory() {}
+    HelloWorldEndpoint(boost::asio::io_context& io) : Endpoint(io) {}
+    virtual ~HelloWorldEndpoint() {}
 
     std::unique_ptr<GetHandler> createGetHandler() {return std::make_unique<HelloWorldGetHandler>(m_io);}
     std::unique_ptr<PostHandler> createPostHandler() {return std::make_unique<HelloWorldPostHandler>(m_io);}

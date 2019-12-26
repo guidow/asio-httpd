@@ -5,7 +5,7 @@
 
 #include <boost/asio.hpp>
 
-#include "requesthandlerfactory.h"
+#include "endpoint.h"
 #include "path.h"
 
 namespace asio_httpd {
@@ -23,14 +23,14 @@ class Server
     void start();
     void quit();
 
-    void register_handler(const Path& path, std::shared_ptr<RequestHandlerFactory> handler);
+    void register_endpoint(const Path& path, std::shared_ptr<Endpoint> handler);
 
     void accept4();
     void accept6();
 
     io_context& get_io_context();
 
-    std::pair<Path, std::shared_ptr<RequestHandlerFactory> > get_rhf_for(const Path& path) const;
+    std::pair<Path, std::shared_ptr<Endpoint> > get_endpoint_for(const Path& path) const;
 
     class HandlerNotFound : public std::runtime_error
         {
@@ -45,7 +45,7 @@ class Server
     uint16_t m_listenport;
     ip::tcp::acceptor m_acceptor4;
     ip::tcp::acceptor m_acceptor6;
-    std::map<Path, std::shared_ptr<RequestHandlerFactory> > m_mappings;
+    std::map<Path, std::shared_ptr<Endpoint>> m_mappings;
     };
 
 }
