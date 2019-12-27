@@ -12,7 +12,7 @@ class HelloWorldGetHandler : public GetHandler
     {
     public:
     HelloWorldGetHandler(boost::asio::io_context& io) : GetHandler(io) {}
-    ~HelloWorldGetHandler() {}
+    virtual ~HelloWorldGetHandler() {}
 
     void set_subpath(const Path& path);
 

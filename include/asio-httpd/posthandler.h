@@ -9,7 +9,7 @@ class PostHandler : public HandlerBase
     {
     public:
     PostHandler(boost::asio::io_service& io) : HandlerBase(io) {}
-    ~PostHandler() {}
+    virtual ~PostHandler() {}
 
     // Override the following (always both, never just one!) if you know the content length
     virtual bool content_length_known();

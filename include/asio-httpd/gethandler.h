@@ -9,7 +9,7 @@ class GetHandler : public HandlerBase
     {
     public:
     GetHandler(boost::asio::io_context& io) : HandlerBase(io) {}
-    ~GetHandler() {}
+    virtual ~GetHandler() {}
 
     // Override the following (always both, never just one!) if you know the content length
     virtual bool content_length_known();

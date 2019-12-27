@@ -15,7 +15,7 @@ class HandlerBase
     {
     public:
     HandlerBase(boost::asio::io_context& io) : m_io(io) {}
-    ~HandlerBase() {}
+    virtual ~HandlerBase() {}
 
     virtual void set_subpath(const Path& path) {m_subpath = path;}
     virtual void set_additional_params(const std::string& params) {m_additional_params = params;}

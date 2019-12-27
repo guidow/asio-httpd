@@ -12,7 +12,7 @@ class HelloWorldPostHandler : public PostHandler
     {
     public:
     HelloWorldPostHandler(boost::asio::io_context& io) : PostHandler(io) {}
-    ~HelloWorldPostHandler() {}
+    virtual ~HelloWorldPostHandler() {}
 
     void set_subpath(const Path& path);
 
