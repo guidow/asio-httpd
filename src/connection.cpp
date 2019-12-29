@@ -139,7 +139,6 @@ void Connection::handle_readheaderfield(const boost::system::error_code& err)
 
                 if(m_currentrequest->expected_payload_bytes() != 0) {
                     readpayload();
-                    return;
                     }
                 else {
                     boost::function<void (boost::system::error_code)> callback = boost::bind(
