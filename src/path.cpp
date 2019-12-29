@@ -18,10 +18,10 @@ Path::~Path()
 void Path::set(const std::string& path)
     {
     std::string currentcomponent;
-    for(std::string::const_iterator i = path.begin() ; i != path.end(); ++i)
+    for(auto character : path)
         {
-        if(*i != '/')
-            currentcomponent.append(*i, 1);
+        if(character != '/')
+            currentcomponent.append(character, 1);
         else
             {
             if(m_components.empty() || m_components.at(m_components.size() - 1) != "/")
