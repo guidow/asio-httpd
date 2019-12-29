@@ -55,21 +55,20 @@ void Connection::handle_readrequestline(const boost::system::error_code& err)
 
         std::string::size_type pos = line.find(' ');
         if(pos == std::string::npos)
-            throw BadRequest("No path given");
+            throw BadRequest("No resource given");
         std::string rqtype = line.substr(0, pos);
 
-        // Extract path
+        // Extract resource
         pos = line.find_first_not_of(" \t", pos);
         if(pos == std::string::npos)
-            throw BadRequest("No path given");
+            throw BadRequest("No resource given");
         std::string::size_type pos2 = line.find(' ', pos);
         if(pos2 == std::string::npos)
             throw BadRequest("No protocol version given");
-        std::string path = line.substr(pos, pos2 - pos);
+        std::string resource = line.substr(pos, pos2 - pos);
 
         // Extract protocol and version string
         std::string protocolversion = line.substr(pos2 + 1);
-
 
         // Make request object
         if(rqtype == "GET")
@@ -83,7 +82,7 @@ void Connection::handle_readrequestline(const boost::system::error_code& err)
         else
             throw BadRequest("Unknown request method");
 
-        m_currentrequest->set_path(path);
+        m_currentrequest->set_resource(resource);
         m_currentrequest->set_protocol(protocolversion);
 
         readheaderfield();

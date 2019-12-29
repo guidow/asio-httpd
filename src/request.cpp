@@ -7,10 +7,10 @@
 
 namespace asio_httpd {
 
-void Request::set_path(const std::string& path)
+void Request::set_resource(const std::string& resource)
     {
     // TODO Support full URIs as paths, as mandated by RFC 2616 section 5.1.1
-    std::string path_copy = path;
+    std::string path_copy = resource;
     std::string::size_type pos = path_copy.find("#");
     if(pos != std::string::npos)
         path_copy.erase(pos);

@@ -22,8 +22,8 @@ class Request
     Request(Server& server) : m_server(server) {}
     virtual ~Request() {}
 
-    void set_path(const std::string & path);
-    void set_protocol(const std::string & protocol);
+    void set_resource(const std::string& resource);
+    void set_protocol(const std::string& protocol);
 
     void add_http_header(const HttpHeader& header);
 
