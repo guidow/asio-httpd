@@ -11,7 +11,7 @@ add_library(asio-httpd SHARED
 target_include_directories(asio-httpd PRIVATE .)
 target_include_directories(asio-httpd PRIVATE ../include/asio-httpd/)
 set_target_properties(asio-httpd PROPERTIES VERSION ${PROJECT_VERSION})
-set_target_properties(asio-httpd PROPERTIES SOVERSION 0)
+set_target_properties(asio-httpd PROPERTIES SOVERSION ${PROJECT_VERSION_MAJOR})
 set_target_properties(asio-httpd PROPERTIES PUBLIC_HEADER
             include/asio-httpd/deletehandler.h
             include/asio-httpd/deleterequest.h
